@@ -1,10 +1,11 @@
 from Person import Person
 from Date import Date
 class Visitor(Person):
-    __total_visits = 0
     def __init__(self, name, last_name, birth_date, curp,register_date):
         super().__init__(name, last_name, birth_date, curp)
         self.__register_date = register_date
+        self.__total_visits=0
+        
     #Métodos de la clase
     def get_total_visits(self):
         return self.__total_visits
@@ -12,7 +13,7 @@ class Visitor(Person):
         return self.__register_date
     def set_total_visits(self,total_visits):
         self.__total_visits = total_visits
-    
+        
     def show_visitor(self):
         return self.show_info() + f"Total visits: {self.__total_visits} Register date: {self.__register_date.show_date()}"
     def modify_visitor(self):

@@ -33,7 +33,7 @@ class Visit:
         if visitor in self.__visitors:
             print("Este visitante ya fue registrado")
         else:
-            visitor.set_total_visits(visitor.get_total_visits() + 1)
+            visitor.set_total_visits(visitor.get_total_visits()+1)
             self.__visitors.append(visitor)
 
     def delete_visitor(self, visitor):
@@ -70,5 +70,5 @@ class Visit:
         print(f"Guía: {self.get_guide().show_guide()}")
         print(f"Visitantes: ")
         self.show_visitors()
-        print(f"\n Total cost: {self.get_total_cost()}\n Cantidad de niños: {self.get_kids_quantity()}\nCantidad adultos: {self.get_adults_quantity()}\nFecha de visita: {self.get_visit_date().show_date()}")
+        print(f"\nTotal cost: {self.get_total_cost()}\nCantidad de niños: {self.get_kids_quantity()}\nCantidad adultos: {self.get_adults_quantity()}\nFecha de visita: {self.get_visit_date().show_date()}")
         
