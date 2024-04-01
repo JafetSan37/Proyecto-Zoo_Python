@@ -1,9 +1,9 @@
 from Person import Person
 from Date import Date
 class Visitor(Person):
+    __total_visits = 0
     def __init__(self, name, last_name, birth_date, curp,register_date):
         super().__init__(name, last_name, birth_date, curp)
-        self.__total_visits = 0
         self.__register_date = register_date
     #Métodos de la clase
     def get_total_visits(self):
