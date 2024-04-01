@@ -58,7 +58,7 @@ class Zoo:
         print("Año(AAAA): ")
         year = int(input())
         if self.__validate_date(day, month, year):
-            return date(year, month, day)
+            return Date(year, month, day)
         return None
 
     @staticmethod
@@ -169,6 +169,12 @@ class Zoo:
         self.__visitors.append(new_visitor)
         print("Visitante creado con éxito")     
         
+    def validate_visitors(visit, visitor):
+        band = True
+        if visitor in visit.get_visitors():
+            band = False
+        return band
+    
         
     #Métodos Jaf
     
@@ -193,7 +199,7 @@ class Zoo:
         birth_date_atziri = Date(5, 6, 1996)
         birth_date_jafet = Date(30, 1, 1997)
         birth_date_alan = Date(5, 6, 1996)
-        register_date_alan = Date(31, 3, 2024)
+        register_date_alan = Date(22, 5, 2020)
         birth_date_pao = Date(23, 4, 1997)
         register_date_pao = Date(30, 3, 2024)
         birth_date_marcos = Date(15, 1, 1990)

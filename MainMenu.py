@@ -1,21 +1,15 @@
 from Zoo import Zoo
 class MainMenu:
-    @staticmethod
-    def main():
-        password = "uwu"
-        print(">>> Bienvenido al zoológico <<<")
-        user_input = input("\nIngrese contraseña: ")
+    password = "uwu"
+    print(">>> Bienvenido al zoológico <<<")
+    user_input = input("\nIngrese contraseña: ")
 
-        if (user_input == password):
-            MainMenu.show_menu()
-        else:
-            print("\nContraseña inválida, intente más tarde")
-
-    @staticmethod
-    def show_menu():
+    if (user_input != password):
+        print("\nContraseña inválida, intente más tarde")
+    else:
         zoo = Zoo()
         flag = True
-
+        zoo.tester
         while flag:
             print(">>> Bienvenido al sistema <<<")
             print("\n¿Qué acción desea realizar?\n"
@@ -36,7 +30,7 @@ class MainMenu:
                   "15) Consultar visitas\n"
                   "16) Consultar mantenimientos\n"
                   "0) Salir")
-            option = int(input("\n"))
+            option = int(input("Ingrese una opcion: "))
             if(option == 1):
                 zoo.add_employee()
             elif(option == 2):
@@ -71,3 +65,6 @@ class MainMenu:
                 zoo.show_care_list()
             elif(option == 0):
                 flag = False
+                print("Gracias por usar el zoologico")
+
+    
