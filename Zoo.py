@@ -190,7 +190,7 @@ class Zoo:
                         print("\nEl usuario ya está en esta visita\n")
             print("\nVisita creada con éxito\n")
     
-    def validate_visitors(visit, visitor):
+    def validate_visitors(self, visit, visitor):
         band = True
         if visitor in visit.get_visitors():
             band = False
