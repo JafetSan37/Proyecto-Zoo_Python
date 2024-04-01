@@ -417,6 +417,7 @@ class Zoo:
         visit1.add_visitor(visitor2)
         visit1.add_visitor(visitor3)
         visit2 = Visit(guide1, visit_date)
+        visit2.add_visitor(visitor1)
         visit2.add_visitor(visitor4)
         visit2.add_visitor(visitor5)
         visit2.add_visitor(visitor6)
