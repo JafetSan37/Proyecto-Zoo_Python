@@ -9,7 +9,7 @@ class MainMenu:
     else:
         zoo = Zoo()
         flag = True
-        zoo.tester
+        zoo.tester()
         while flag:
             print(">>> Bienvenido al sistema <<<")
             print("\n¿Qué acción desea realizar?\n"
