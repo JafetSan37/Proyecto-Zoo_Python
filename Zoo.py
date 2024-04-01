@@ -144,13 +144,13 @@ class Zoo:
         # nombre completo
         name = input("Ingrese el nombre: ")
         last_name = input("Ingrese el apellido: ")
-        if not name or not last_name:
+        if name==None or last_name==None:
             print("Debe llenar el nombre completo correctamente")
             return
         # Registro de fecha de nacimiento
         print("Registro de fecha de nacimiento")
         birth_date = self.__register_date()
-        if birth_date==None:
+        if birth_date is None:
             print("Fecha de nacimiento no válida")
             return
 
@@ -158,7 +158,7 @@ class Zoo:
         curp = input("Ingrese la CURP: ")  # ¿Deberíamos hacer un método para validar la CURP?
         # Fecha de registro del visitante
         print("Fecha de registro del visitante: ")
-        register_date = self.register_date()
+        register_date = self.__register_date()
         if register_date is None:
             print("Fecha de registro no válida")
             return
@@ -166,7 +166,7 @@ class Zoo:
         # Crear el visitante
         new_visitor = Visitor(name, last_name, birth_date, curp, register_date)
         # Agregarlo a la lista
-        self.visitors.append(new_visitor)
+        self.__visitors.append(new_visitor)
         print("Visitante creado con éxito")     
         
         
