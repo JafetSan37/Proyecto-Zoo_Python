@@ -102,7 +102,7 @@ class Zoo:
         else:
             i = 1
         for maintenance in self.__maintenances:
-            print(f"{i}) {maintenance.show_maitenance()}")
+            print(f"{i}) {maintenance.show_maintenance()}")
             i += 1
     def show_animals(self):
         if len(self.__vets)==0:
