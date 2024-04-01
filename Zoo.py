@@ -359,8 +359,9 @@ class Zoo:
         if(len(self.__visits)==0):
             print("\nNo hay visitas para mostrar")
         else:
-            for i, visit in enumerate(self.__visits, 1):
-                print(f"Visita: {i} {visit.show_visit()}")
+            for i in range(0,len(self.__visits)):
+                print(f"Visit {i+1}")
+                self.__visits[i].show_visit()
                 print(".....................................")
 
     def show_care_list(self):
