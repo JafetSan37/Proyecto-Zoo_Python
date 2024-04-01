@@ -58,6 +58,6 @@ class Animals:
         self.__is_vaccinated = vaccinated
 
     def show_animal(self):
-        aDate = f"{self.__arrival_date.day}/{self.__arrival_date.month}/{self.__arrival_date.year}"
-        bDate = f"{self.__birth_date.day}/{self.__birth_date.month}/{self.__birth_date.year}"
+        aDate = f"{self.__arrival_date.get_day_of_month()}/{self.__arrival_date.get_month()}/{self.__arrival_date.get_year()}"
+        bDate = f"{self.__birth_date.get_day_of_month()}/{self.__birth_date.get_month()}/{self.__birth_date.get_year()}"
         return f"ID: {self.__id} || type: {self.__type} || Fecha de llegada: {aDate} || diet: {self.__diet} || Fecha nacimiento: {bDate} || Peso: {self.__weight} || Frecuencia de alimentacion: {self.__feeding_frequency} || Esta vacunado: {self.__is_vaccinated}"
