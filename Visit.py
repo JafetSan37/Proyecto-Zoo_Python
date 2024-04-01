@@ -26,11 +26,11 @@ class Visit:
         return self.__visit_date
 
     def add_visitor(self, visitor):
-        if visitor in self.visitors:
+        if visitor in self.__visitors:
             print("Este visitante ya fue registrado")
         else:
             visitor.set_total_visits(visitor.get_total_visits() + 1)
-            self.visitors.append(visitor)
+            self.__visitors.append(visitor)
 
     def delete_visitor(self, visitor):
         self.__visitors.remove(visitor)
@@ -45,7 +45,7 @@ class Visit:
     # Calcula el total de niños
     def __kids_quanty(self):
         quantity = 0
-        for visitor in self.visitors:
+        for visitor in self.__visitors:
             if not visitor.is_an_adult():
                 quantity += 1
         return quantity
@@ -53,7 +53,7 @@ class Visit:
     # Calcula el total de adultos
     def __adults_quanty(self):
         quantity = 0
-        for visitor in self.visitors:
+        for visitor in self.__visitors:
             if visitor.is_an_adult():
                 quantity += 1
         return quantity
