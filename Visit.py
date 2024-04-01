@@ -45,7 +45,7 @@ class Visit:
     # Calcula el total de niños
     def __kids_quanty(self):
         quantity = 0
-        for visitor in self.visitors:
+        for visitor in self.visitors():
             if not visitor.is_an_adult():
                 quantity += 1
         return quantity
