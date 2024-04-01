@@ -38,5 +38,5 @@ class Date:
         else:
             print("Día no válido")
     #Método para mostrar la fecha como cadena
-    def showDate(self):
+    def show_date(self):
         return f"{self.day_of_month}/{self.month}/{self.year}"
