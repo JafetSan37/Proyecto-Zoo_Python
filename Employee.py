@@ -44,4 +44,4 @@ class Employee (Person):
             self.set_schedule(schedule)
         else:
             print("\nOpción no válida")
-        print(f"\nEmpleado modificado: {self.show_employee}")
+        print(f"\nEmpleado modificado: {self.show_employee()}")
