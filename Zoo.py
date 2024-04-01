@@ -160,8 +160,35 @@ class Zoo:
         # Agregarlo a la lista
         self.__visitors.append(new_visitor)
         print("Visitante creado con éxito")     
-    #Falta el método addVisit
     
+    def add_visit(self):
+        print("\nGuías")
+        self.show_guides()
+        opcion = int(input("\nIngrese el número de guía: "))
+        guide = self.__guides.get(opcion-1)
+        print("\nIngresa la fecha de visita")
+        date = self.__register_date()
+        if(date==None):
+            print("\nError. La fecha ingresada no es válida\n")
+        else:
+            band = True
+            visit = Visit(guide,date)
+            self.__visits.append(visit)
+            while(band):
+                print("\nSi desea ingresar un visitante ingrese el número, ingrese 0 para salir\n")
+                self.show_visitors()
+                opcion = int(input("\n"))
+                if(opcion==0):
+                    band = False
+                if(opcion>len(self.__visitors)):
+                    print("\nIngrese un número de visitante válido\n")
+                if(opcion>0 & opcion<=len(self.__visitors)):
+                    if(self.validate_visitors(visit,self.__visitors.get(opcion-1))):
+                        visit.add_visitor(self.__visitors.get(opcion-1))
+                        print("\nUsuario agregado")
+                    else:
+                        print("\nEl usuario ya está en esta visita\n")
+            print("\nVisita creada con éxito\n")
     
     def validate_visitors(visit, visitor):
         band = True
