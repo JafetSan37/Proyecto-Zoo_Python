@@ -1,5 +1,5 @@
 class Care:
-    def _init_(self, employee_in_charge, process_realized, id, process_date, observations):
+    def __init__(self, employee_in_charge, process_realized, id, process_date, observations):
         self.__employee_in_charge = employee_in_charge
         self.__process_realized = process_realized
         self.__id = id

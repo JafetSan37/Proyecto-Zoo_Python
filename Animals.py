@@ -3,7 +3,7 @@ from Date import Date
 class Animals:
     __cant_animal = 0
 
-    def _init_(self, type, arrival_date, diet, birth_date, weight, feeding_frequency, is_vaccinated):
+    def __init__(self, type, arrival_date, diet, birth_date, weight, feeding_frequency, is_vaccinated):
         self.__cant_animal += 1
         self.__id = self.__cant_animal
         self.__type = type
