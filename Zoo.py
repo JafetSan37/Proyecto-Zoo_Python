@@ -4,9 +4,10 @@ from Management import Management
 from Vet import Vet
 from Visit import Visit
 from Visitor import Visitor
-"""from Animals import Animals"""
-"""from Care import Care"""
+from Animals import Animals
+from Care import Care
 from Date import Date
+
 class Zoo:
     def __init__(self):
         self.__guides = []
@@ -174,9 +175,165 @@ class Zoo:
         if visitor in visit.get_visitors():
             band = False
         return band
-    
+    def add_animal(self):
+        type_animal = input("Ingrese tipo de animal: ")
+        print("Fecha de llegada")
+        arrival_date = self.register_date()
+        if arrival_date is None:
+            print("Fecha no válida")
+            return
+        diet = input("Ingrese tipo de dieta: ")
+        print("Fecha Nacimiento")
+        birth_date = self.register_date()
+        if birth_date is None:
+            print("Fecha no válida")
+            return
         
-    #Métodos Jaf
+        weight = float(input("Ingrese peso (kg): "))
+        feeding_frequency = int(input("Veces que se alimenta por semana: "))
+        vaccinated = int(input("¿Tiene sus vacunas?\n 1) Si 2) No"))
+        if vaccinated == 1:
+            is_vaccinated = True
+        elif vaccinated == 2:
+            is_vaccinated = False
+        else:
+            print("No es una entrada válida")
+            return
+        # Crear objeto y añadirlo a la lista
+        new_animal = Animals(type_animal, arrival_date, diet, birth_date, weight, feeding_frequency, is_vaccinated)
+        self.__animals.append(new_animal)
+        print("Animal registrado en sistema")
+    
+    def add_care(self):
+        print("Seleccionaste añadir cuidado/mantenimiento")
+        print("Selecciona el número de empleado a cargo")
+        self.show_maintenances()
+        employee_selected = int(input()) - 1
+        staff = self.__maintenances[employee_selected]
+
+        process_realized = input("Ingrese proceso realizado:")
+        print("Selecciona el número de animal al que realizarás cuidado")
+        self.show_animals()
+        animal_selected = int(input()) - 1
+        selected_animal = self.__animals[animal_selected]
+        print("Seleccionaste " + selected_animal.show_animal())
+        id_animal = selected_animal.get_id()
+
+        print("Fecha del proceso: ")
+        process_date = self.register_date()
+        if process_date is None:
+            print("Fecha no válida")
+            return
+
+        observations = input("Observaciones (opcional): ")
+
+        # Crear objeto
+        new_care = Care(staff, process_realized, id_animal, process_date, observations)
+        print("Cuidado registrado, gracias por cuidar tqm")
+        
+    def modify_animal_register(self):
+        print("Elija el animal al que desea actualizar su registro")
+        self.show_animals()
+        opcion = int(input())
+        print("Has seleccionado: " + self.animals[opcion - 1].show_animal())
+        print("¿Qué cambio desea realizar?\n1) Registrar Enfermedad\n2) Actualizar peso\n" +
+          "3) Cambiar tipo de alimentación\n4) Cambiar frecuencia de alimentación\n5) Registrar vacunación\n0) Atrás")
+        option = int(input())
+        animal = self.__animals[opcion - 1]
+
+        if option == 1:
+            new_disease = input("Ingrese enfermedad: ")
+            animal.add_disease(new_disease)
+            print("Enfermedad agregada")
+        elif option == 2:
+            new_weight = float(input("Ingrese nuevo peso (Kg): "))
+            animal.set_weight(new_weight)
+            print("El nuevo peso de " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " es: " + str(animal.get_weight()) + "Kg")
+        elif option == 3:
+            new_diet = input("Ingrese nueva dieta: ")
+            animal.set_diet(new_diet)
+            print("Dieta actualizada")
+        elif option == 4:
+            print("Elegiste cambiar frecuencia de alimentación")
+            new_frequency = int(input("Ingrese número de veces por semana: "))
+            animal.set_feeding_frequency(new_frequency)
+            print("Frecuencia actualizada")
+        elif option == 5:
+            print("Elegiste actualizar vacunación")
+            decision = int(input("¿Tiene todas sus vacunas?\n 1)Si 2) No"))
+            if decision == 1:
+                animal.set_vaccinated(True)
+                print("Ahora " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " está vacunado")
+            elif decision == 2:
+                animal.set_vaccinated(False)
+                print("Se ha actualizado que " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " requiere vacunas")
+            else:
+                print("Entrada no válida")
+        elif option == 0:
+            pass
+        else:
+            print("Entrada no válida")
+            
+    def delete_employee(self):
+        print("¿Qué tipo de empleado desea eliminar? \n1. Guia\n2. Veterinario\n3. Mantenimiento\n4. Administracion\n0. Salir")
+        selection = int(input())
+
+        if selection == 1:
+            # Mostrar guías
+            self.show_guides()
+            guide_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            self.__guides.pop(guide_to_delete)
+            print("Empleado eliminado")
+
+        elif selection == 2:
+            # Mostrar veterinarios
+            self.show_vets()
+            vet_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            self.__vets.pop(vet_to_delete)
+            print("Empleado eliminado")
+
+        elif selection == 3:
+            # Mostrar personal de mantenimiento
+            self.show_maintenances()
+            staff_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            self.__maintenances.pop(staff_to_delete)
+            print("Empleado eliminado")
+
+        elif selection == 4:
+            # Mostrar personal de administración
+            self.show_managements()
+            manager_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            self.__managements.pop(manager_to_delete)
+            print("Empleado eliminado")
+
+        elif selection == 0:
+            pass
+
+        else:
+            print("Entrada no válida")
+    
+    def delete_animal(self):
+        i = 1
+        print("Selecciona el animal a eliminar:")
+        for index, animal in enumerate(self.animals):
+            print(f"{i}) {animal.show_animal()}")
+            i += 1
+        selection = int(input()) - 1
+        print("Seleccionaste: " + self.__animals[selection].show_animal())
+        confirmation = int(input("¿Estás seguro de que lo quieres eliminar?\n 1) Si 2) Cancelar"))
+        if confirmation == 1:
+            del self.__animals[selection]
+            print("Animal eliminado de la base de datos.")
+        else:
+            print("Se canceló su eliminación")
+            
+    def delete_visitor(self):
+        print("Seleccione el visitante que desea eliminar: ")
+        self.show_visitors()
+        visitor_to_delete = int(input()) - 1
+
+        self.__visitors.pop(visitor_to_delete)
+        #Métodos Jaf
     
     def show_visits(self):
         if(len(self.__visits)==0):
