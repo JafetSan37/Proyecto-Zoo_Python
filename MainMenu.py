@@ -1,4 +1,4 @@
-from Zoo import Zoo  # Importamos la clase Zoo desde el módulo zoo
+#from Zoo import Zoo
 class MainMenu:
     @staticmethod
     def main():
@@ -13,7 +13,7 @@ class MainMenu:
 
     @staticmethod
     def show_menu():
-        zoo = Zoo()  # Creamos una instancia de la clase Zoo
+        zoo = Zoo()
         flag = True
 
         while flag:
