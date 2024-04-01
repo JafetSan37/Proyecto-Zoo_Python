@@ -165,7 +165,7 @@ class Zoo:
         print("\nGuías")
         self.show_guides()
         opcion = int(input("\nIngrese el número de guía: "))
-        guide = self.__guides.get(opcion-1)
+        guide = self.__guides[opcion-1]
         print("\nIngresa la fecha de visita")
         date = self.__register_date()
         if(date==None):
@@ -183,8 +183,8 @@ class Zoo:
                 if(opcion>len(self.__visitors)):
                     print("\nIngrese un número de visitante válido\n")
                 if(opcion>0 & opcion<=len(self.__visitors)):
-                    if(self.validate_visitors(visit,self.__visitors.get(opcion-1))):
-                        visit.add_visitor(self.__visitors.get(opcion-1))
+                    if(self.validate_visitors(visit,self.__visitors[opcion-1])):
+                        visit.add_visitor(self.__visitors[opcion-1])
                         print("\nUsuario agregado")
                     else:
                         print("\nEl usuario ya está en esta visita\n")
