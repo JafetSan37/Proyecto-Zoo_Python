@@ -198,13 +198,13 @@ class Zoo:
     def add_animal(self):
         type_animal = input("Ingrese tipo de animal: ")
         print("Fecha de llegada")
-        arrival_date = self.register_date()
+        arrival_date = self.__register_date()
         if arrival_date is None:
             print("Fecha no válida")
             return
         diet = input("Ingrese tipo de dieta: ")
         print("Fecha Nacimiento")
-        birth_date = self.register_date()
+        birth_date = self.__register_date()
         if birth_date is None:
             print("Fecha no válida")
             return
