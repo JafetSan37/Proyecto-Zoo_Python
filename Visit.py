@@ -36,7 +36,7 @@ class Visit:
         self.__visitors.remove(visitor)
 
     # Calcula el costo total de la visita
-    def cost(self):
+    def __cost(self):
         cost = 0
         for visitor in self.__visitors:
             cost += visitor.calculate_ticket_cost()
