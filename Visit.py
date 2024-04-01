@@ -26,20 +26,20 @@ class Visit:
         return self.__visit_date
 
     def add_visitor(self, visitor):
-        if visitor in self.__visitors:
+        if visitor in self.visitors:
             print("Este visitante ya fue registrado")
         else:
-            visitor.set_total_visits(visitor.get)
-            self.__visitors.append(visitor)
+            visitor.set_total_visits(visitor.get_total_visits() + 1)
+            self.visitors.append(visitor)
 
     def delete_visitor(self, visitor):
         self.__visitors.remove(visitor)
 
     # Calcula el costo total de la visita
-    def __cost(self):
+    def cost(self):
         cost = 0
-        for i in range(0,len(self.__visitors)):
-            cost += self.__visitors[i].calculate_ticket_cost()
+        for visitor in self.__visitors:
+            cost += visitor.calculate_ticket_cost()
         return cost
 
     # Calcula el total de niños
