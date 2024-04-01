@@ -122,15 +122,6 @@ class Zoo:
             print(f"{i}) {visitor.show_visitor()}")
             i += 1
             
-    def show_vets(self):
-        if len(self.__vets)==0:
-            print("No hay veterinarios registrados")
-        else:
-            i = 1
-        for vet in self.__vets:
-            print(f"{i}) {vet.show_vet()}")
-            i += 1
-            
     def show_employees(self):
         print("Guias:\n")
         self.show_guides()
@@ -169,7 +160,9 @@ class Zoo:
         # Agregarlo a la lista
         self.__visitors.append(new_visitor)
         print("Visitante creado con éxito")     
-        
+    #Falta el método addVisit
+    
+    
     def validate_visitors(visit, visitor):
         band = True
         if visitor in visit.get_visitors():
