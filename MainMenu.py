@@ -1,4 +1,4 @@
-#from Zoo import Zoo
+from Zoo import Zoo
 class MainMenu:
     @staticmethod
     def main():
@@ -6,10 +6,10 @@ class MainMenu:
         print(">>> Bienvenido al zoológico <<<")
         user_input = input("\nIngrese contraseña: ")
 
-        if user_input == password:
+        if (user_input == password):
             MainMenu.show_menu()
         else:
-            print("Contraseña inválida, intente más tarde")
+            print("\nContraseña inválida, intente más tarde")
 
     @staticmethod
     def show_menu():
@@ -18,7 +18,7 @@ class MainMenu:
 
         while flag:
             print(">>> Bienvenido al sistema <<<")
-            print("¿Qué acción desea realizar?\n"
+            print("\n¿Qué acción desea realizar?\n"
                   "1) Registrar empleado\n"
                   "2) Registrar visitante\n"
                   "3) Registrar visita\n"
@@ -36,43 +36,38 @@ class MainMenu:
                   "15) Consultar visitas\n"
                   "16) Consultar mantenimientos\n"
                   "0) Salir")
-
-            option = int(input())
-            if option == 1:
+            option = int(input("\n"))
+            if(option == 1):
                 zoo.add_employee()
-            elif option == 2:
+            elif(option == 2):
                 zoo.add_visitors()
-            elif option == 3:
+            elif(option == 3):
                 zoo.add_visit()
-            elif option == 4:
+            elif(option == 4):
                 zoo.add_animal()
-            elif option == 5:
+            elif(option == 5):
                 zoo.add_care()
-            elif option == 6:
+            elif(option == 6):
                 zoo.modify_employee()
-            elif option == 7:
+            elif(option == 7):
                 zoo.modify_animal_register()
-            elif option == 8:
+            elif(option == 8):
                 zoo.modify_visitor()
-            elif option == 9:
+            elif(option == 9):
                 zoo.delete_employee()
-            elif option == 10:
+            elif(option == 10):
                 zoo.delete_animal()
-            elif option == 11:
+            elif(option == 11):
                 zoo.delete_visitor()
-            elif option == 12:
+            elif(option == 12):
                 zoo.show_employees()
-            elif option == 13:
+            elif(option == 13):
                 zoo.show_animals()
-            elif option == 14:
+            elif(option == 14):
                 zoo.show_visitors()
-            elif option == 15:
+            elif(option == 15):
                 zoo.show_visits()
-            elif option == 16:
+            elif(option == 16):
                 zoo.show_care_list()
-            elif option == 0:
+            elif(option == 0):
                 flag = False
-
-
-if __name__ == "__main__":
-    MainMenu.main()
