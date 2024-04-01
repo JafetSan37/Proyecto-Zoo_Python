@@ -369,7 +369,7 @@ class Zoo:
         else:
             print(">>> Lista de Cuidados <<<")
             for i, care in enumerate(self.__cares, 1):
-                print(f"{i}) {care.show_care}")
+                print(f"{i}) {care.show_care()}")
     
     def tester(self):
         birth_date_alex = Date(4, 2, 2003)
