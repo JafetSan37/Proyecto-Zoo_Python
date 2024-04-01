@@ -17,7 +17,7 @@ class Employee (Person):
         self.schedule = schedule
     def show_employee(self):
         return self.show_info() + f" || RFC: {self.rfc} || Salary: ${self.salary} || Posición: {self.rol} || Fecha de Contratación: {self.hire_date.show_date()} || Horario: {self.schedule}"
-    def modify(self):
+    def modify_employee(self):
         print("¿Qué aspecto desea modificar?\n1) Nombre\n2) Apellido\n3) Fecha de Nacimiento\n4) CURP\n5) RFC\n6) Salario\n7) Horario")
         selection = int(input("\n"))
         #En Python no existe el switch, por lo que se recurre al uso del if y else if

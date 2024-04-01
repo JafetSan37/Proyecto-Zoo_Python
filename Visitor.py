@@ -15,7 +15,7 @@ class Visitor(Person):
     
     def show_visitor(self):
         return self.show_info() + f"Total visits: {self.__total_visits} Register date: {self.__register_date.show_date()}"
-    def modify(self):
+    def modify_visitor(self):
         print("\n¿Qué aspecto desea modificar?\n1) Nombre\n2) Apellido\n3) Fecha de Nacimiento\n4) CURP")
         selection = int(input("\n"))
         if(selection==1):
