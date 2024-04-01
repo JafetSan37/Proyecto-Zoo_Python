@@ -240,7 +240,7 @@ class Zoo:
         id_animal = selected_animal.get_id()
 
         print("Fecha del proceso: ")
-        process_date = self.register_date()
+        process_date = self.__register_date()
         if process_date is None:
             print("Fecha no válida")
             return
