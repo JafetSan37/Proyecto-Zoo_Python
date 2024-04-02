@@ -21,7 +21,7 @@ class Date:
     
     #Modifica la fecha actual y valida datos
     def modify_date(self):
-        print("Ingrese la fecha de Nacimiento")
+        print("\nIngrese la fecha de Nacimiento")
         new_year = int(input("\nAño: "))
         if(new_year>1900 and new_year<2024):
             self.year = new_year

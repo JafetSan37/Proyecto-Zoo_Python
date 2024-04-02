@@ -22,4 +22,4 @@ class Person:
     #Método para mostrar la información
     def show_info(self):
         #Se llama al método show_date de la clase Date para el atributo birth_date
-        return f"Nombre completo: {self.__name} {self.__last_name}, Fecha de nacimiento: {self.__birth_date.show_date()}, CURP: {self.__curp}"
+        return f"Nombre completo: {self.__name} {self.__last_name}\n   Fecha de nacimiento: {self.__birth_date.show_date()}\n   CURP: {self.__curp}"

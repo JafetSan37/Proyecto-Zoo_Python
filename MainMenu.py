@@ -11,9 +11,9 @@ class MainMenu:
         flag = True
         zoo.tester()
         while flag:
-            print(">>> Bienvenido al sistema <<<")
+            print("\n>>> Bienvenido al sistema <<<")
             print("\n¿Qué acción desea realizar?\n"
-                  "1) Registrar empleado\n"
+                  "\n1) Registrar empleado\n"
                   "2) Registrar visitante\n"
                   "3) Registrar visita\n"
                   "4) Registrar animal\n"
@@ -30,7 +30,7 @@ class MainMenu:
                   "15) Consultar visitas\n"
                   "16) Consultar mantenimientos\n"
                   "0) Salir")
-            option = int(input("Ingrese una opcion: "))
+            option = int(input("\nIngrese una opcion: "))
             if(option == 1):
                 zoo.add_employee()
             elif(option == 2):
@@ -65,6 +65,6 @@ class MainMenu:
                 zoo.show_care_list()
             elif(option == 0):
                 flag = False
-                print("Gracias por usar el zoologico")
+                print("\nGracias por usar el zoologico")
 
     

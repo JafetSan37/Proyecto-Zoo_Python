@@ -20,43 +20,43 @@ class Zoo:
         self.__cares = []
 
     def add_employee(self):
-        name = input("Ingrese el nombre: ")
-        lastName = input("Ingrese el apellido: ")
+        name = input("\nIngrese el nombre: ")
+        lastName = input("\nIngrese el apellido: ")
         # Seleccionar fechas
-        print("Fecha de Nacimiento")
+        print("\nFecha de Nacimiento")
         date_of_birth = self.__register_date()
-        print("Fecha de contratación")
+        print("\nFecha de contratación")
         hire_date = self.__register_date()
         if date_of_birth!=None and hire_date!=None:
-            curp = input("Ingrese la curp: ")
-            rfc = input("Ingrese el RFC: ")
-            salary = float(input("Ingrese el salario: "))
-            schedule = input("Ingrese el horario: ")
-            print("Seleccione el tipo de empleado: \n1. Guia\n2. Veterinario\n3. Mantenimiento\n4. Administracion")
+            curp = input("\nIngrese la curp: ")
+            rfc = input("\nIngrese el RFC: ")
+            salary = float(input("\nIngrese el salario: "))
+            schedule = input("\nIngrese el horario: ")
+            print("\nSeleccione el tipo de empleado: \n1. Guia\n2. Veterinario\n3. Mantenimiento\n4. Administracion")
             opcion = int(input())
             if opcion == 1:
                 self.__guides.append(Guide(name, lastName, date_of_birth, curp, rfc, salary, hire_date, schedule))
-                print("Guia agregado con exito")
+                print("\nGuia agregado con exito")
             elif opcion == 2:
                 self.__vets.append(Vet(name, lastName, date_of_birth, curp, rfc, salary, hire_date, schedule))
-                print("Veterinario agregado con exito")
+                print("\nVeterinario agregado con exito")
             elif opcion == 3:
                 self.__maintenances.append(Maintenance(name, lastName, date_of_birth, curp, rfc, salary, hire_date, schedule))
-                print("Empleado de mantenimiento agregado con exito")
+                print("\nEmpleado de mantenimiento agregado con exito")
             elif opcion == 4:
                 self.__managements.append(Management(name, lastName, date_of_birth, curp, rfc, salary, hire_date, schedule))
-                print("Administrador agregado con exito")
+                print("\nAdministrador agregado con exito")
             else:
-                print("No fue posible agregar el empleado")
+                print("\nNo fue posible agregar el empleado")
         else:
-            print("La fecha no es valida, no se pudo realizar el registro")
+            print("\nLa fecha no es valida, no se pudo realizar el registro")
 
     def __register_date(self):
-        print("Dia (1-31): ")
+        print("\nDia (1-31): ")
         day = int(input())
-        print("Mes(1-12): ")
+        print("\nMes(1-12): ")
         month = int(input())
-        print("Año(AAAA): ")
+        print("\nAño(AAAA): ")
         year = int(input())
         if self.__validate_date(day, month, year):
             return Date(year, month, day)
@@ -74,7 +74,7 @@ class Zoo:
     
     def show_guides(self):
         if len(self.__guides)==0:
-            print("No hay guias registrados")
+            print("\nNo hay guias registrados")
         else:
             i = 1
         for guide in self.__guides:
@@ -82,7 +82,7 @@ class Zoo:
             i += 1
     def show_vets(self):
         if len(self.__vets)==0:
-            print("No hay veterinarios registrados")
+            print("\nNo hay veterinarios registrados")
         else:
             i = 1
         for vet in self.__vets:
@@ -90,7 +90,7 @@ class Zoo:
             i += 1
     def show_managements(self):
         if len(self.__managements)==0:
-            print("No hay empleados de mantenimiento registrados")
+            print("\nNo hay empleados de mantenimiento registrados")
         else:
             i = 1
         for management in self.__managements:
@@ -98,7 +98,7 @@ class Zoo:
             i += 1
     def show_maintenances(self):
         if len(self.__maintenances)==0:
-            print("No hay veterinarios registrados")
+            print("\nNo hay veterinarios registrados")
         else:
             i = 1
         for maintenance in self.__maintenances:
@@ -106,7 +106,7 @@ class Zoo:
             i += 1
     def show_animals(self):
         if len(self.__vets)==0:
-            print("No hay animales registrados")
+            print("\nNo hay animales registrados")
         else:
             i = 1
         for animal in self.__animals:
@@ -115,7 +115,7 @@ class Zoo:
             
     def show_visitors(self):
         if len(self.__visitors)==0:
-            print("No hay visitantes registrados")
+            print("\nNo hay visitantes registrados")
         else:
             i = 1
         for visitor in self.__visitors:
@@ -123,43 +123,43 @@ class Zoo:
             i += 1
             
     def show_employees(self):
-        print("Guias:\n")
+        print("\nGuias:\n")
         self.show_guides()
-        print("Veterinarios:\n")
+        print("\nVeterinarios:\n")
         self.show_vets()
-        print("Mantenimiento:\n")
+        print("\nMantenimiento:\n")
         self.show_maintenances()
-        print("Administradores:\n")
+        print("\nAdministradores:\n")
         self.show_managements()
         
     def add_visitors(self):
         # nombre completo
-        name = input("Ingrese el nombre: ")
-        last_name = input("Ingrese el apellido: ")
+        name = input("\nIngrese el nombre: ")
+        last_name = input("\nIngrese el apellido: ")
         if name==None or last_name==None:
-            print("Debe llenar el nombre completo correctamente")
+            print("\nDebe llenar el nombre completo correctamente")
             return
         # Registro de fecha de nacimiento
-        print("Registro de fecha de nacimiento")
+        print("\nRegistro de fecha de nacimiento")
         birth_date = self.__register_date()
         if birth_date is None:
-            print("Fecha de nacimiento no válida")
+            print("\nFecha de nacimiento no válida")
             return
 
         # Ingrese la CURP
-        curp = input("Ingrese la CURP: ")  # ¿Deberíamos hacer un método para validar la CURP?
+        curp = input("\nIngrese la CURP: ")  # ¿Deberíamos hacer un método para validar la CURP?
         # Fecha de registro del visitante
-        print("Fecha de registro del visitante: ")
+        print("\nFecha de registro del visitante: ")
         register_date = self.__register_date()
         if register_date is None:
-            print("Fecha de registro no válida")
+            print("\nFecha de registro no válida")
             return
 
         # Crear el visitante
         new_visitor = Visitor(name, last_name, birth_date, curp, register_date)
         # Agregarlo a la lista
         self.__visitors.append(new_visitor)
-        print("Visitante creado con éxito")     
+        print("\nVisitante creado con éxito")     
     
     def add_visit(self):
         print("\nGuías")
@@ -196,159 +196,159 @@ class Zoo:
             band = False
         return band
     def add_animal(self):
-        type_animal = input("Ingrese tipo de animal: ")
-        print("Fecha de llegada")
+        type_animal = input("\nIngrese tipo de animal: ")
+        print("\nFecha de llegada")
         arrival_date = self.__register_date()
         if arrival_date is None:
-            print("Fecha no válida")
+            print("\nFecha no válida")
             return
-        diet = input("Ingrese tipo de dieta: ")
-        print("Fecha Nacimiento")
+        diet = input("\nIngrese tipo de dieta: ")
+        print("\nFecha Nacimiento")
         birth_date = self.__register_date()
         if birth_date is None:
-            print("Fecha no válida")
+            print("\nFecha no válida")
             return
         
-        weight = float(input("Ingrese peso (kg): "))
-        feeding_frequency = int(input("Veces que se alimenta por semana: "))
-        vaccinated = int(input("¿Tiene sus vacunas?\n 1) Si 2) No"))
+        weight = float(input("\nIngrese peso (kg): "))
+        feeding_frequency = int(input("\nVeces que se alimenta por semana: "))
+        vaccinated = int(input("\n¿Tiene sus vacunas?\n 1) Si 2) No\n"))
         if vaccinated == 1:
             is_vaccinated = True
         elif vaccinated == 2:
             is_vaccinated = False
         else:
-            print("No es una entrada válida")
+            print("\nNo es una entrada válida")
             return
         # Crear objeto y añadirlo a la lista
         new_animal = Animals(type_animal, arrival_date, diet, birth_date, weight, feeding_frequency, is_vaccinated)
         self.__animals.append(new_animal)
-        print("Animal registrado en sistema")
+        print("\nAnimal registrado en sistema")
     
     def add_care(self):
-        print("Seleccionaste añadir cuidado/mantenimiento")
-        print("Selecciona el número de empleado a cargo")
+        print("\nSeleccionaste añadir cuidado/mantenimiento")
+        print("\nSelecciona el número de empleado a cargo")
         self.show_maintenances()
         employee_selected = int(input()) - 1
         staff = self.__maintenances[employee_selected]
 
-        process_realized = input("Ingrese proceso realizado:")
-        print("Selecciona el número de animal al que realizarás cuidado")
+        process_realized = input("\nIngrese proceso realizado: ")
+        print("\nSelecciona el número de animal al que realizarás cuidado")
         self.show_animals()
         animal_selected = int(input()) - 1
         selected_animal = self.__animals[animal_selected]
-        print("Seleccionaste " + selected_animal.show_animal())
+        print("\nSeleccionaste " + selected_animal.show_animal())
         id_animal = selected_animal.get_id()
 
-        print("Fecha del proceso: ")
+        print("\nFecha del proceso: ")
         process_date = self.__register_date()
         if process_date is None:
-            print("Fecha no válida")
+            print("\nFecha no válida")
             return
 
-        observations = input("Observaciones (opcional): ")
+        observations = input("\nObservaciones (opcional): ")
 
         # Crear objeto
         new_care = Care(staff, process_realized, id_animal, process_date, observations)
-        print("Cuidado registrado, gracias por cuidar tqm")
+        print("\nCuidado registrado, gracias por cuidar tqm")
         
     def modify_animal_register(self):
-        print("Elija el animal al que desea actualizar su registro")
+        print("\nElija el animal al que desea actualizar su registro")
         self.show_animals()
         opcion = int(input())
-        print("Has seleccionado: " + self.__animals[opcion - 1].show_animal())
-        print("¿Qué cambio desea realizar?\n1) Registrar Enfermedad\n2) Actualizar peso\n" +
+        print("\nHas seleccionado: " + self.__animals[opcion - 1].show_animal())
+        print("\n¿Qué cambio desea realizar?\n1) Registrar Enfermedad\n2) Actualizar peso\n" +
           "3) Cambiar tipo de alimentación\n4) Cambiar frecuencia de alimentación\n5) Registrar vacunación\n0) Atrás")
         option = int(input())
         animal = self.__animals[opcion - 1]
 
         if option == 1:
-            new_disease = input("Ingrese enfermedad: ")
+            new_disease = input("\nIngrese enfermedad: ")
             animal.add_disease(new_disease)
-            print("Enfermedad agregada")
+            print("\nEnfermedad agregada")
         elif option == 2:
-            new_weight = float(input("Ingrese nuevo peso (Kg): "))
+            new_weight = float(input("\nIngrese nuevo peso (Kg): "))
             animal.set_weight(new_weight)
-            print("El nuevo peso de " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " es: " + str(animal.get_weight()) + "Kg")
+            print("\nEl nuevo peso de " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " es: " + str(animal.get_weight()) + "Kg")
         elif option == 3:
-            new_diet = input("Ingrese nueva dieta: ")
+            new_diet = input("\nIngrese nueva dieta: ")
             animal.set_diet(new_diet)
-            print("Dieta actualizada")
+            print("\nDieta actualizada")
         elif option == 4:
-            print("Elegiste cambiar frecuencia de alimentación")
-            new_frequency = int(input("Ingrese número de veces por semana: "))
+            print("\nElegiste cambiar frecuencia de alimentación")
+            new_frequency = int(input("\nIngrese número de veces por semana: "))
             animal.set_feeding_frequency(new_frequency)
-            print("Frecuencia actualizada")
+            print("\nFrecuencia actualizada")
         elif option == 5:
-            print("Elegiste actualizar vacunación")
-            decision = int(input("¿Tiene todas sus vacunas?\n 1)Si 2) No"))
+            print("\nElegiste actualizar vacunación")
+            decision = int(input("\n¿Tiene todas sus vacunas?\n 1)Si 2) No\n"))
             if decision == 1:
                 animal.set_vaccinated(True)
-                print("Ahora " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " está vacunado")
+                print("\nAhora " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " está vacunado")
             elif decision == 2:
                 animal.set_vaccinated(False)
-                print("Se ha actualizado que " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " requiere vacunas")
+                print("\nSe ha actualizado que " + animal.get_type() + " ||ID: " + str(animal.get_id()) + " requiere vacunas")
             else:
-                print("Entrada no válida")
+                print("\nEntrada no válida")
         elif option == 0:
             pass
         else:
-            print("Entrada no válida")
+            print("\nEntrada no válida")
             
     def delete_employee(self):
-        print("¿Qué tipo de empleado desea eliminar? \n1. Guia\n2. Veterinario\n3. Mantenimiento\n4. Administracion\n0. Salir")
+        print("\n¿Qué tipo de empleado desea eliminar? \n1. Guia\n2. Veterinario\n3. Mantenimiento\n4. Administracion\n0. Salir\n")
         selection = int(input())
 
         if selection == 1:
             # Mostrar guías
             self.show_guides()
-            guide_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            guide_to_delete = int(input("\nSelecciona el empleado que desea eliminar: ")) - 1
             self.__guides.pop(guide_to_delete)
-            print("Empleado eliminado")
+            print("\nEmpleado eliminado")
 
         elif selection == 2:
             # Mostrar veterinarios
             self.show_vets()
-            vet_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            vet_to_delete = int(input("\nSelecciona el empleado que desea eliminar: ")) - 1
             self.__vets.pop(vet_to_delete)
-            print("Empleado eliminado")
+            print("\nEmpleado eliminado")
 
         elif selection == 3:
             # Mostrar personal de mantenimiento
             self.show_maintenances()
-            staff_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
+            staff_to_delete = int(input("\nSelecciona el empleado que desea eliminar: ")) - 1
             self.__maintenances.pop(staff_to_delete)
-            print("Empleado eliminado")
+            print("\nEmpleado eliminado")
 
         elif selection == 4:
             # Mostrar personal de administración
             self.show_managements()
             manager_to_delete = int(input("Selecciona el empleado que desea eliminar")) - 1
             self.__managements.pop(manager_to_delete)
-            print("Empleado eliminado")
+            print("\nEmpleado eliminado")
 
         elif selection == 0:
             pass
 
         else:
-            print("Entrada no válida")
+            print("\nEntrada no válida")
     
     def delete_animal(self):
         i = 1
-        print("Selecciona el animal a eliminar:")
+        print("\nSelecciona el animal a eliminar:")
         for index, animal in enumerate(self.animals):
             print(f"{i}) {animal.show_animal()}")
             i += 1
         selection = int(input()) - 1
-        print("Seleccionaste: " + self.__animals[selection].show_animal())
-        confirmation = int(input("¿Estás seguro de que lo quieres eliminar?\n 1) Si 2) Cancelar"))
+        print("\nSeleccionaste: " + self.__animals[selection].show_animal())
+        confirmation = int(input("\n¿Estás seguro de que lo quieres eliminar?\n 1) Si 2) Cancelar\n"))
         if confirmation == 1:
             del self.__animals[selection]
-            print("Animal eliminado de la base de datos.")
+            print("\nAnimal eliminado de la base de datos.")
         else:
-            print("Se canceló su eliminación")
+            print("\nSe canceló su eliminación")
             
     def delete_visitor(self):
-        print("Seleccione el visitante que desea eliminar: ")
+        print("\nSeleccione el visitante que desea eliminar: ")
         self.show_visitors()
         visitor_to_delete = int(input()) - 1
 
@@ -360,7 +360,7 @@ class Zoo:
             print("\nNo hay visitas para mostrar")
         else:
             for i in range(0,len(self.__visits)):
-                print(f"Visit {i+1}")
+                print(f"Visit {i+1}\n")
                 self.__visits[i].show_visit()
                 print(".....................................")
 
@@ -368,9 +368,9 @@ class Zoo:
         if(len(self.__cares)==0):
             print("\nNo hay registros")
         else:
-            print(">>> Lista de Cuidados <<<")
+            print("\n>>> Lista de Cuidados <<<")
             for i, care in enumerate(self.__cares, 1):
-                print(f"{i}) {care.show_care()}")
+                print(f"{i}) {care.show_care()}\n")
     
     def tester(self):
         birth_date_alex = Date(4, 2, 2003)
@@ -458,7 +458,7 @@ class Zoo:
         self.__animals.append(animal10)
 
         process_date = Date(31, 3, 2024)
-        care1 = Care(maintenance1, "Alimentar", 0, process_date, "comió poquito :(")
+        care1 = Care(maintenance1, "Alimentar", 0, process_date, "Comió poquito :(")
         care2 = Care(maintenance2, "Curacion", 4, process_date, "Mejora significativa en sus heridas")
         self.__cares.append(care1)
         self.__cares.append(care2)
@@ -469,22 +469,22 @@ class Zoo:
         if(opcion==1):
             print("\nSeleccione el número")
             self.show_guides()
-            opcion = int(input("\n"))
+            opcion = int(input())
             self.__guides[opcion-1].modify_employee()
         elif(opcion==2):
             print("\nSeleccione el número")
             self.show_vets()
-            opcion = int(input("\n"))
+            opcion = int(input())
             self.__vets[opcion-1].modify_employee()
         elif(opcion==3):
             print("\nSeleccione el número")
             self.show_maintenances()
-            opcion = int(input("\n"))
+            opcion = int(input())
             self.__maintenances[opcion-1].modify_employee()
         elif(opcion==4):
             print("\nSeleccione el número")
             self.show_managements()
-            opcion = int(input("\n"))
+            opcion = int(input())
             self.__managements[opcion-1].modify_employee()
         else: print("\nOpción no válida")
     def modify_visitor(self):

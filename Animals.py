@@ -60,4 +60,4 @@ class Animals:
     def show_animal(self):
         aDate = f"{self.__arrival_date.get_day_of_month()}/{self.__arrival_date.get_month()}/{self.__arrival_date.get_year()}"
         bDate = f"{self.__birth_date.get_day_of_month()}/{self.__birth_date.get_month()}/{self.__birth_date.get_year()}"
-        return f"ID: {self.__id} || type: {self.__type} || Fecha de llegada: {aDate} || diet: {self.__diet} || Fecha nacimiento: {bDate} || Peso: {self.__weight} || Frecuencia de alimentacion: {self.__feeding_frequency} || Esta vacunado: {self.__is_vaccinated}"
+        return f"ID: {self.__id}\n   type: {self.__type}\n   Fecha de llegada: {aDate}\n   Diet: {self.__diet}\n   Fecha nacimiento: {bDate}\n   Peso: {self.__weight}\n   Frecuencia de alimentacion: {self.__feeding_frequency}\n   Esta vacunado: {self.__is_vaccinated}\n"
