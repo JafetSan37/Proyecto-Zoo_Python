@@ -1,5 +1,7 @@
 from Date import Date
 
+from Date import Date
+
 class Animals:
     __cant_animal = 0
 
@@ -14,6 +16,7 @@ class Animals:
         self.__feeding_frequency = feeding_frequency
         self.__is_vaccinated = is_vaccinated
         self.__list_diseases = []
+
 
     def add_disease(self, new_disease):
         self.__list_diseases.append(new_disease)

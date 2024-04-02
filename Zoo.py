@@ -195,6 +195,8 @@ class Zoo:
         if visitor in visit.get_visitors():
             band = False
         return band
+
+        
     def add_animal(self):
         type_animal = input("\nIngrese tipo de animal: ")
         print("\nFecha de llegada")
@@ -369,8 +371,10 @@ class Zoo:
             print("\nNo hay registros")
         else:
             print("\n>>> Lista de Cuidados <<<")
-            for i, care in enumerate(self.__cares, 1):
-                print(f"{i}) {care.show_care()}\n")
+            for i in range(0,len(self.__cares)):
+                print(f"Care {i+1}\n")
+                self.__cares[i].show_care()
+           
     
     def tester(self):
         birth_date_alex = Date(4, 2, 2003)
@@ -458,7 +462,7 @@ class Zoo:
         self.__animals.append(animal10)
 
         process_date = Date(31, 3, 2024)
-        care1 = Care(maintenance1, "Alimentar", 0, process_date, "Comió poquito :(")
+        care1 = Care(maintenance1, "Alimentar", 1, process_date, "Comió poquito :(")
         care2 = Care(maintenance2, "Curacion", 4, process_date, "Mejora significativa en sus heridas")
         self.__cares.append(care1)
         self.__cares.append(care2)
