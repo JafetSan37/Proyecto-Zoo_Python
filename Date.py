@@ -23,19 +23,19 @@ class Date:
     def modify_date(self):
         print("Ingrese la fecha de Nacimiento")
         new_year = int(input("\nAño: "))
-        if(new_year>1900 & new_year<2024):
+        if(new_year>1900 and new_year<2024):
             self.year = new_year
-        else:
+        elif(new_year>=2024):
             print("Año no válido")
         new_month = int(input("\nMes: "))
-        if(new_month<13 & new_month>0):
+        if(new_month<13 and new_month>0):
             self.month = new_month
-        else:
+        elif(new_month>=13 or new_month<=0):
             print("Mes no válido")
         new_day_of_month = int(input("\nDía: "))
-        if(new_day_of_month>0 & new_day_of_month<32):
+        if(new_day_of_month>0 and new_day_of_month<32):
             self.day_of_month = new_day_of_month
-        else:
+        elif(new_day_of_month>=32 or new_day_of_month<=0):
             print("Día no válido")
     #Método para mostrar la fecha como cadena
     def show_date(self):

@@ -32,7 +32,7 @@ class Visitor(Person):
             self.set_curp(new_curp)
         else:
             print("\nOpción no válida")
-        print(f"\nInformación guardada: {self.show_visitor}")
+        print(f"\nInformación guardada: {self.show_visitor()}")
     def calculate_ticket_cost(self):
         if(self.is_an_adult()):
             if(self.__total_visits%5==0):
