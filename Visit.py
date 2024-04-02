@@ -2,11 +2,11 @@ from Guide import Guide
 from Visitor import Visitor
 
 class Visit:
-    __visitors = []
     
     def __init__(self, guide, visit_date):
         self.__guide = guide
         self.__visit_date = visit_date
+        self.__visitors = []
 
     def get_total_cost(self):
         self.__total_cost = self.__cost()
@@ -33,7 +33,7 @@ class Visit:
         if visitor in self.__visitors:
             print("Este visitante ya fue registrado")
         else:
-            visitor.set_total_visits(visitor.get_total_visits()+1)
+            visitor.add_visit()
             self.__visitors.append(visitor)
 
     def delete_visitor(self, visitor):

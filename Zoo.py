@@ -255,7 +255,7 @@ class Zoo:
         print("Elija el animal al que desea actualizar su registro")
         self.show_animals()
         opcion = int(input())
-        print("Has seleccionado: " + self.animals[opcion - 1].show_animal())
+        print("Has seleccionado: " + self.__animals[opcion - 1].show_animal())
         print("¿Qué cambio desea realizar?\n1) Registrar Enfermedad\n2) Actualizar peso\n" +
           "3) Cambiar tipo de alimentación\n4) Cambiar frecuencia de alimentación\n5) Registrar vacunación\n0) Atrás")
         option = int(input())
@@ -417,6 +417,7 @@ class Zoo:
         visit1.add_visitor(visitor2)
         visit1.add_visitor(visitor3)
         visit2 = Visit(guide1, visit_date)
+        visit2.add_visitor(visitor1)
         visit2.add_visitor(visitor4)
         visit2.add_visitor(visitor5)
         visit2.add_visitor(visitor6)
