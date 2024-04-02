@@ -22,9 +22,9 @@ class Care:
         return self.__observations
 
     def show_care(self):
-        print("Empleado a cargo: " + self.__get_employee_in_charge().show_employee() +
+        print("Empleado a cargo: " + self.__employee_in_charge.show_employee() +
               "\nProceso: " + self.__process_realized + "\n" +
-              "ID Animal: " + str(self.__get_id()) +
-              "\nFecha Proceso: " + self.__get_process_date().show_date() +
-              "\nObservaciones: " + self.__get_observations())
+              "ID Animal: " + str(self.__id) +
+              "\nFecha Proceso: " + self.__process_date.show_date() +
+              "\nObservaciones: " + self.__observations)
         print("......................................")
